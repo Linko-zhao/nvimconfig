@@ -1,0 +1,17 @@
+local keymap = vim.keymap
+
+-- 查看当前行悬浮报错详情 (类似鼠标悬停效果)
+keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+
+-- 跳转到上一个/下一个报错
+keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
+keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+
+-- 将所有报错放入 Quickfix 列表
+keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Diagnostic Quickfix" })
+
+local builtin = require('telescope.builtin')
+keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
