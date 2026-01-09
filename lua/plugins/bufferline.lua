@@ -7,7 +7,7 @@ return {
       options = {
         -- 使用模式：buffers (显示所有打开的文件)
         mode = "buffers",
-				themable = true,
+				separator_style = "thick",
         -- 右侧是否显示关闭按钮
         show_buffer_close_icons = true,
         show_close_icon = false,
@@ -15,7 +15,7 @@ return {
         offsets = {
           {
             filetype = "NvimTree",
-            text = "File Explorer",
+            text = "Explorer",
             text_align = "center", -- 居中对齐文字
             separator = true,
           }
@@ -26,10 +26,52 @@ return {
           local icon = level:match("error") and " " or " "
           return icon .. count
         end,
-        -- 鼠标滚轮切换 buffer
+				close_command = "bdelete %d",
         right_mouse_command = "vertical sbuffer %d", -- 右键拆分显示
         middle_mouse_command = "bdelete! %d",         -- 中键关闭
       },
+			highlights = {
+				fill = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "StatusLineNC" },
+				},
+				background = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "StatusLine" },
+				},
+				buffer_visible = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "Normal" },
+				},
+				buffer_selected = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "Normal" },
+				},
+				separator = {
+					fg = { attribute = "bg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "StatusLine" },
+				},
+				separator_selected = {
+					fg = { attribute = "fg", highlight = "Special" },
+					bg = { attribute = "bg", highlight = "Normal" },
+				},
+				separator_visible = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "StatusLineNC" },
+				},
+				close_button = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "StatusLine" },
+				},
+				close_button_selected = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "Normal" },
+				},
+				close_button_visible = {
+					fg = { attribute = "fg", highlight = "Normal" },
+					bg = { attribute = "bg", highlight = "Normal" },
+				},
+			},
     },
 		keys = {
       { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
