@@ -15,3 +15,7 @@ keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files
 keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+keymap.set('n', 'gd', builtin.lsp_definitions, { desc = 'Goto Definition' })
+keymap.set('n', 'gi', builtin.lsp_implementations, { desc = 'Goto Implementation' })
+keymap.set('n', 'gr', builtin.lsp_references, { desc = 'Goto References' })
+keymap.set('n', '<leader>ds', builtin.lsp_document_symbols, { desc = 'Document Symbols' })
