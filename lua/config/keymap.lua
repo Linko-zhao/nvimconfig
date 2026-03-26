@@ -20,6 +20,9 @@ keymap.set('n', 'gi', builtin.lsp_implementations, { desc = 'Goto Implementation
 keymap.set('n', 'gr', builtin.lsp_references, { desc = 'Goto References' })
 keymap.set('n', '<leader>ds', builtin.lsp_document_symbols, { desc = 'Document Symbols' })
 
+keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Docs' })
+keymap.set('n', '<C-k>', vim.lsp.buf.hover, { desc = 'Signature Help' })
+
 -- 调试快捷键
 local dap = require("dap")
 keymap.set("n", "<F5>", function() dap.continue() end)
