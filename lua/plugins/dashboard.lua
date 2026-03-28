@@ -1,0 +1,31 @@
+return {
+  'nvimdev/dashboard-nvim',
+  event = 'VimEnter',
+  config = function()
+    require('dashboard').setup({
+      theme = 'hyper', -- 推荐 hyper 主题，布局更现代化
+      config = {
+				-- header = {
+				-- 	[[███╗   ██╗██╗ ██████╗███████╗██████╗  █████╗ ██╗   ██╗]],
+				-- 	[[████╗  ██║██║██╔════╝██╔════╝██╔══██╗██╔══██╗╚██╗ ██╔╝]],
+				-- 	[[██╔██╗ ██║██║██║     █████╗  ██║  ██║███████║ ╚████╔╝ ]],
+				-- 	[[██║╚██╗██║██║██║     ██╔══╝  ██║  ██║██╔══██║  ╚██╔╝  ]],
+				-- 	[[██║ ╚████║██║╚██████╗███████╗██████╔╝██║  ██║   ██║   ]],
+				-- 	[[╚═╝  ╚═══╝╚═╝ ╚═════╝╚══════╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ]],
+				-- },
+        week_header = {
+          enable = true,
+        },
+        shortcut = {
+          { desc = '󰊄 Recent Files', group = '@property', action = 'Telescope oldfiles', key = 'r' },
+          { desc = '󰱼 Find File', group = 'Label', action = 'Telescope find_files', key = 'f' },
+          { desc = '󰒲 Lazy Update', group = 'DiagnosticHint', action = 'Lazy update', key = 'u' },
+          { desc = ' Settings', group = 'Number', action = 'edit $MYVIMRC', key = 's' },
+        },
+        -- 项目列表（对后台多工程开发非常有用）
+        project = { enable = true, limit = 8, label = 'Recent Projects', action = 'Telescope find_files cwd=' },
+      },
+    })
+  end,
+  dependencies = { {'nvim-tree/nvim-web-devicons'} }
+}
