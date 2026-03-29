@@ -22,17 +22,3 @@ keymap.set('n', '<leader>ds', builtin.lsp_document_symbols, { desc = 'Document S
 
 keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Docs' })
 keymap.set('n', '<C-k>', vim.lsp.buf.hover, { desc = 'Signature Help' })
-
--- 调试快捷键
-local dap = require("dap")
-keymap.set("n", "<F5>", function() dap.continue() end)
-keymap.set("n", "<F10>", function() dap.step_over() end)
-keymap.set("n", "<F11>", function() dap.step_into() end)
-keymap.set("n", "<F12>", function() dap.step_out() end)
-keymap.set("n", "<F9>", function() dap.toggle_breakpoint() end)
-keymap.set("n", "<Leader>B", function()
-  dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-end)
-keymap.set("n", "<Leader>dr", function() dap.repl.open() end)
-keymap.set("n", "<Leader>dl", function() dap.run_last() end)
-keymap.set("n", "<Leader>du", function() require("dapui").toggle() end)
