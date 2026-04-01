@@ -1,8 +1,8 @@
 -- lua/plugins/lsp.lua
 
+-- 2. 配置 Diagnostic 的行为
 local icons = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = "󰋽 " }
 
--- 2. 配置 Diagnostic 的行为
 vim.diagnostic.config({
   -- 行内虚拟文字 (错误信息显示在行尾)
   signs = {
@@ -60,16 +60,5 @@ return {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
     },
-    config = function()
-      -- 1. 这里的配置只处理通用的 UI 和 快捷键
-      vim.api.nvim_create_autocmd("LspAttach", {
-        callback = function(ev)
-          local opts = { buffer = ev.buf }
-          vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-          vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        end,
-      })
-    end,
   },
 }
