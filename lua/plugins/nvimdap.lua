@@ -31,6 +31,7 @@ return {
 
     dapui.setup()
 		require("dap-go").setup()
+		require("config.dap")
 
 		vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
     vim.fn.sign_define("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })

@@ -1,0 +1,18 @@
+{
+	"go": {
+		"name": "Dlv debug",
+		"request": "launch",
+		"mode": "exec",
+		"program": "/root/application",
+		"port": 2345,
+		"host": "10.18.10.100"
+	}
+}
+{
+	"go": {
+		"name": "Dlv debug",
+		"request": "attach",
+		"mode": "local",
+		"processId": "pick"
+	}
+}
