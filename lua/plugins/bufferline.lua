@@ -7,6 +7,7 @@ return {
       options = {
         -- 使用模式：buffers (显示所有打开的文件)
         mode = "buffers",
+				sort_by = "insert_at_end",
 				separator_style = "thick",
         -- 右侧是否显示关闭按钮
         show_buffer_close_icons = true,
