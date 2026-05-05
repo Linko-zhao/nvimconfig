@@ -1,8 +1,0 @@
--- vim.treesitter.start() 
--- vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
---   pattern = { '*.go' },
---   callback = function() 
---     vim.treesitter.start() 
---     print("GoGoGo")
---   end,
--- })
