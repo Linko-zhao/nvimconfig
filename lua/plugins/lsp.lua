@@ -35,11 +35,11 @@ vim.diagnostic.config({
 
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {},
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     opts = {
       ensure_installed = { "gopls", "lua_ls", "vimls" },
       handlers = {
@@ -57,8 +57,45 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason.nvim",
+      "mason-org/mason-lspconfig.nvim",
     },
+		config = function()
+      -- Mason v2 默认安装目录：
+      -- ~/.local/share/nvim/mason/packages/vue-language-server
+      local vue_language_server_path = vim.fn.stdpath("data")
+        .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+
+      local vue_typescript_plugin = {
+        name = "@vue/typescript-plugin",
+        location = vue_language_server_path,
+        languages = { "vue" },
+        configNamespace = "typescript",
+      }
+
+      -- 配置 vtsls，使其处理 Vue 文件中的 TypeScript/JavaScript
+      vim.lsp.config("vtsls", {
+        settings = {
+          vtsls = {
+            tsserver = {
+              globalPlugins = {
+                vue_typescript_plugin,
+              },
+            },
+          },
+        },
+
+        filetypes = {
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact",
+          "vue",
+        },
+      })
+
+      -- vue_ls 负责 Vue 模板、SFC 结构等 Vue 专属能力
+      vim.lsp.config("vue_ls", {})
+    end,
   },
 }
