@@ -22,3 +22,7 @@ keymap.set('n', '<leader>ds', builtin.lsp_document_symbols, { desc = 'Document S
 
 keymap.set('n', 'K', function () vim.lsp.buf.hover() end, { desc = 'Hover Docs' })
 keymap.set({ "i", "n" }, "<C-k>", function() vim.lsp.buf.signature_help() end, { desc = "Signature Help" })
+
+vim.keymap.set("n", "<leader>m", "<cmd>MdKite start<cr>", { desc = "Markdown: Start preview" })
+vim.keymap.set("n", "<leader>ms", "<cmd>MdKite stop<cr>", { desc = "Markdown: Stop preview" })
+vim.keymap.set("n", "<leader>mr", "<cmd>MdKite refresh<cr>", { desc = "Markdown: Refresh preview" })
